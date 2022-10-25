@@ -1,4 +1,7 @@
 // MARK: - Team
+public struct Teams: Codable {
+    var teams: [Team]
+}
 public struct Team: Codable {
     public let idTeam: String
     public let idAPIfootball: String
