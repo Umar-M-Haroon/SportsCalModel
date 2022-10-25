@@ -1,11 +1,11 @@
 // MARK: - Team
 public struct Team: Codable {
-    let idTeam: String
-    let idAPIfootball: String
-    let strTeam: String
-    let strTeamShort: String
-    let strAlternate: String
-    let strTeamBadge: String
+    public let idTeam: String
+    public let idAPIfootball: String
+    public let strTeam: String
+    public let strTeamShort: String
+    public let strAlternate: String
+    public let strTeamBadge: String
     
     enum CodingKeys: String, CodingKey {
         case idTeam = "idTeam"

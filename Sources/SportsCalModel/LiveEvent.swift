@@ -8,7 +8,7 @@
 import Foundation
 // MARK: - LiveEvent
 public struct LiveEvent: Codable {
-    var events: [Game]
+    public var events: [Game]
     enum CodingKeys: String, CodingKey {
         case events
     }
@@ -16,18 +16,18 @@ public struct LiveEvent: Codable {
 
 // MARK: - Event
 public struct Game: Codable, Identifiable {
-    var id: String {
+    public var id: String {
         idEvent ?? UUID().uuidString
     }
-    let idLiveScore, idEvent, strSport, idLeague: String?
-    let strLeague, idHomeTeam, idAwayTeam: String?
-    let strHomeTeam: String
-    let strAwayTeam: String
-    let strHomeTeamBadge, strAwayTeamBadge: String?
-    let intHomeScore, intAwayScore: String?
-    let strPlayer, idPlayer, intEventScore, intEventScoreTotal: String??
-    let strStatus, strProgress, strEventTime, dateEvent: String?
-    let updated: String?
-    let strTimestamp: String?
+    public let idLiveScore, idEvent, strSport, idLeague: String?
+    public let strLeague, idHomeTeam, idAwayTeam: String?
+    public let strHomeTeam: String
+    public let strAwayTeam: String
+    public let strHomeTeamBadge, strAwayTeamBadge: String?
+    public let intHomeScore, intAwayScore: String?
+    public let strPlayer, idPlayer, intEventScore, intEventScoreTotal: String??
+    public let strStatus, strProgress, strEventTime, dateEvent: String?
+    public let updated: String?
+    public let strTimestamp: String?
 }
 

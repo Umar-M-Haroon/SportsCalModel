@@ -13,7 +13,7 @@ public enum SportType: String, CaseIterable {
     case mlb
     case nfl
     
-    init(league: Leagues) {
+    public init(league: Leagues) {
         switch league {
         case .nfl:
             self = .nfl
@@ -27,7 +27,7 @@ public enum SportType: String, CaseIterable {
             self = .soccer
         }
     }
-    var capitalized: String {
+    public var capitalized: String {
         switch self {
         case .basketball:
             return "NBA"

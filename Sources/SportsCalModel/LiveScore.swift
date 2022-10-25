@@ -33,10 +33,10 @@ public enum Leagues: Int, Codable, CaseIterable {
     case nhl = 4380
     case mlb = 4424
     
-    var isSoccer: Bool {
+    public var isSoccer: Bool {
         return [Leagues.nfl, Leagues.nba, Leagues.nhl, Leagues.mlb].contains(self)
     }
-    var leagueName: String {
+    public var leagueName: String {
         switch self {
         case .English_Premier_League:
             return "English Premier League"
@@ -90,7 +90,7 @@ public enum Leagues: Int, Codable, CaseIterable {
     }
 }
 public struct LiveScore: Codable {
-    init(nba: LiveEvent? = nil, mlb: LiveEvent? = nil, soccer: LiveEvent? = nil, nfl: LiveEvent? = nil, nhl: LiveEvent? = nil) {
+    public init(nba: LiveEvent? = nil, mlb: LiveEvent? = nil, soccer: LiveEvent? = nil, nfl: LiveEvent? = nil, nhl: LiveEvent? = nil) {
         self.nba = nba
         self.mlb = mlb
         self.soccer = soccer
@@ -100,20 +100,20 @@ public struct LiveScore: Codable {
         removeOtherInfo()
     }
     
-    var nba: LiveEvent?
-    var mlb: LiveEvent?
-    var soccer: LiveEvent?
-    var nfl: LiveEvent?
-    var nhl: LiveEvent?
+    public var nba: LiveEvent?
+    public var mlb: LiveEvent?
+    public var soccer: LiveEvent?
+    public var nfl: LiveEvent?
+    public var nhl: LiveEvent?
     
-    mutating func removeNonStarting() {
+    mutating public func removeNonStarting() {
         nba?.events.removeAll(where: {$0.strStatus == "NS" || $0.strStatus == "FT" || $0.strStatus == "AOT"  })
         mlb?.events.removeAll(where: {$0.strStatus == "NS"})
         soccer?.events.removeAll(where: {$0.strStatus == "NS"})
         nfl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strProgress == "pre" || $0.strProgress == "Final"})
         nhl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strLeague != "NHL" || $0.strStatus == "AOT" || $0.strStatus == "FT" || $0.strProgress == "NS"})
     }
-    mutating func removeOtherInfo() {
+    mutating public func removeOtherInfo() {
         soccer?.events.removeAll(where: { event in
             guard let idLeague = event.idLeague,
                   let leagueID = Int(idLeague) else { return true }
