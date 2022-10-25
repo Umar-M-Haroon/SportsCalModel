@@ -7,7 +7,7 @@
 
 import Foundation
 // MARK: - LiveEvent
-struct LiveEvent: Codable {
+public struct LiveEvent: Codable {
     var events: [Game]
     enum CodingKeys: String, CodingKey {
         case events
@@ -15,7 +15,7 @@ struct LiveEvent: Codable {
 }
 
 // MARK: - Event
-struct Game: Codable, Identifiable {
+public struct Game: Codable, Identifiable {
     var id: String {
         idEvent ?? UUID().uuidString
     }

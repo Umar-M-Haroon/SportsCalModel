@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum SportType: String, CaseIterable {
+public enum SportType: String, CaseIterable {
     case basketball
     case soccer
     case hockey

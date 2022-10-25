@@ -1,5 +1,5 @@
 // MARK: - Team
-struct Team: Codable {
+public struct Team: Codable {
     let idTeam: String
     let idAPIfootball: String
     let strTeam: String
