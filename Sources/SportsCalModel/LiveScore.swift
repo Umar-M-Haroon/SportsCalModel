@@ -111,7 +111,7 @@ public struct LiveScore: Codable, Equatable {
         mlb?.events.removeAll(where: {$0.strStatus == "NS"})
         soccer?.events.removeAll(where: {$0.strStatus == "NS"})
         nfl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strProgress == "pre" || $0.strProgress == "Final"})
-        nhl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strLeague != "NHL" || $0.strStatus == "AOT" || $0.strStatus == "FT" || $0.strProgress == "NS"})
+        nhl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strLeague != "NHL" || $0.strStatus == "AOT" || $0.strStatus == "FT" || $0.strProgress == "NS" || $0.strStatus == "AP" })
     }
     mutating public func removeOtherInfo() {
         soccer?.events.removeAll(where: { event in
