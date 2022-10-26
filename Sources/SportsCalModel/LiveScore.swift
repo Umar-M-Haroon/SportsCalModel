@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public enum Leagues: Int, Codable, CaseIterable {
+public enum Leagues: Int, Codable, CaseIterable, Equatable {
     case English_Premier_League = 4328
     case English_League_Championship = 4329
     case German_Bundesliga = 4331
@@ -89,7 +89,7 @@ public enum Leagues: Int, Codable, CaseIterable {
         }
     }
 }
-public struct LiveScore: Codable {
+public struct LiveScore: Codable, Equatable {
     public init(nba: LiveEvent? = nil, mlb: LiveEvent? = nil, soccer: LiveEvent? = nil, nfl: LiveEvent? = nil, nhl: LiveEvent? = nil) {
         self.nba = nba
         self.mlb = mlb

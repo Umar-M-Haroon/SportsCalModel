@@ -7,7 +7,7 @@
 
 import Foundation
 // MARK: - LiveEvent
-public struct LiveEvent: Codable {
+public struct LiveEvent: Codable, Equatable {
     public var events: [Game]
     enum CodingKeys: String, CodingKey {
         case events
@@ -15,7 +15,7 @@ public struct LiveEvent: Codable {
 }
 
 // MARK: - Event
-public struct Game: Codable, Identifiable {
+public struct Game: Codable, Identifiable, Equatable {
     public init(idLiveScore: String? = nil, idEvent: String? = nil, strSport: String? = nil, idLeague: String? = nil, strLeague: String? = nil, idHomeTeam: String? = nil, idAwayTeam: String? = nil, strHomeTeam: String, strAwayTeam: String, strHomeTeamBadge: String? = nil, strAwayTeamBadge: String? = nil, intHomeScore: String? = nil, intAwayScore: String? = nil, strPlayer: String?? = nil, idPlayer: String?? = nil, intEventScore: String?? = nil, intEventScoreTotal: String?? = nil, strStatus: String? = nil, strProgress: String? = nil, strEventTime: String? = nil, dateEvent: String? = nil, updated: String? = nil, strTimestamp: String? = nil) {
         self.idLiveScore = idLiveScore
         self.idEvent = idEvent
