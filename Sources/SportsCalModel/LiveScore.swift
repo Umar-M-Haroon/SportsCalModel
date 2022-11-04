@@ -107,11 +107,22 @@ public struct LiveScore: Codable, Equatable {
     public var nhl: LiveEvent?
     
     mutating public func removeNonStarting() {
-        nba?.events.removeAll(where: {$0.strStatus == "NS" || $0.strStatus == "FT" || $0.strStatus == "AOT"  })
-        mlb?.events.removeAll(where: {$0.strStatus == "NS"})
-        soccer?.events.removeAll(where: {$0.strStatus == "NS"})
-        nfl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strProgress == "pre" || $0.strProgress == "Final" || $0.strProgress == "Final/OT" || $0.strStatus == "Final" || $0.strStatus == "Final/OT"})
-        nhl?.events.removeAll(where: {$0.strStatus == "NS" || $0.strLeague != "NHL" || $0.strStatus == "AOT" || $0.strStatus == "FT" || $0.strProgress == "NS" || $0.strStatus == "AP" })
+        let invalidStrings = ["NS", "FT", "AOT", "pre", "Final", "Final/OT", ]
+        nba?.events.removeAll(where: { event in
+            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+        })
+        mlb?.events.removeAll(where: { event in
+            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+        })
+        soccer?.events.removeAll(where: { event in
+            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+        })
+        nfl?.events.removeAll(where: { event in 
+            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+        })
+        nhl?.events.removeAll(where: { event in
+            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+        })
     }
     mutating public func removeOtherInfo() {
         soccer?.events.removeAll(where: { event in
