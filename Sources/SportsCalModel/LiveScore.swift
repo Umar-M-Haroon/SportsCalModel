@@ -96,8 +96,6 @@ public struct LiveScore: Codable, Equatable {
         self.soccer = soccer
         self.nfl = nfl
         self.nhl = nhl
-        removeNonStarting()
-        removeOtherInfo()
     }
     
     public var nba: LiveEvent?
