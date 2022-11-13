@@ -105,21 +105,20 @@ public struct LiveScore: Codable, Equatable {
     public var nhl: LiveEvent?
     
     mutating public func removeNonStarting() {
-        let invalidStrings = ["NS", "FT", "AOT", "pre", "Final", "Final/OT", ]
         nba?.events.removeAll(where: { event in
-            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+            event.isDone
         })
         mlb?.events.removeAll(where: { event in
-            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+            event.isDone
         })
         soccer?.events.removeAll(where: { event in
-            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+            event.isDone
         })
         nfl?.events.removeAll(where: { event in 
-            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+            event.isDone
         })
         nhl?.events.removeAll(where: { event in
-            invalidStrings.contains(where: {$0 == event.strStatus}) || invalidStrings.contains(where: {$0 == event.strProgress})
+            event.isDone
         })
     }
     mutating public func removeOtherInfo() {
