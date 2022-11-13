@@ -58,7 +58,7 @@ public struct Game: Codable, Identifiable, Equatable {
 }
 
 extension Game {
-    var isDone: Bool {
+    public var isDone: Bool {
         let invalidStrings = ["NS", "FT", "AOT", "pre", "Final", "Final/OT", ]
         return invalidStrings.contains(where: {$0 == strStatus}) || invalidStrings.contains(where: {$0 == strProgress})
     }
