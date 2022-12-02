@@ -62,4 +62,21 @@ extension Game {
         let invalidStrings = ["NS", "FT", "AOT", "pre", "Final", "Final/OT", "AP"]
         return invalidStrings.contains(where: {$0 == strStatus}) || invalidStrings.contains(where: {$0 == strProgress})
     }
+    func getDate(dateFormatter: DateFormatter, isoFormatter: ISO8601DateFormatter) -> Date? {
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = .init(secondsFromGMT: 0)
+        guard let timestamp = strTimestamp else { return nil }
+        if let date = isoFormatter.date(from: timestamp) {
+            return date
+        }
+        if let date = dateFormatter.date(from: timestamp) {
+            return date
+        }
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        if let date = dateFormatter.date(from: timestamp) {
+            return date
+        }
+        return nil
+    }
+
 }
