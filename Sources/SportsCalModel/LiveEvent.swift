@@ -1,6 +1,6 @@
 //
 //  LiveBasketball.swift
-//  
+//
 //
 //  Created by Umar Haroon on 10/21/22.
 //
@@ -58,7 +58,7 @@ public struct Game: Codable, Identifiable, Equatable {
 }
 
 extension Game {
-    public var isDone: Bool {
+    public var hasDoneStatus: Bool {
         let invalidStrings = ["NS", "FT", "AOT", "pre", "Final", "Final/OT", "AP"]
         return invalidStrings.contains(where: {$0 == strStatus}) || invalidStrings.contains(where: {$0 == strProgress})
     }
