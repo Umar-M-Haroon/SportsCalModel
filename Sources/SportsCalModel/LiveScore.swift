@@ -106,19 +106,19 @@ public struct LiveScore: Codable, Equatable {
     
     mutating public func removeNonStarting() {
         nba?.events.removeAll(where: { event in
-            event.isDone
+            event.hasDoneStatus
         })
         mlb?.events.removeAll(where: { event in
-            event.isDone
+            event.hasDoneStatus
         })
         soccer?.events.removeAll(where: { event in
-            event.isDone
+            event.hasDoneStatus
         })
         nfl?.events.removeAll(where: { event in 
-            event.isDone
+            event.hasDoneStatus
         })
         nhl?.events.removeAll(where: { event in
-            event.isDone
+            event.hasDoneStatus
         })
     }
     mutating public func removeOtherInfo() {
