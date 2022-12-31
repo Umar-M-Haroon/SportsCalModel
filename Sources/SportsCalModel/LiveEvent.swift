@@ -8,6 +8,10 @@
 import Foundation
 // MARK: - LiveEvent
 public struct LiveEvent: Codable, Equatable {
+    public init(events: [Game]) {
+        self.events = events
+    }
+    
     public var events: [Game]
     enum CodingKeys: String, CodingKey {
         case events
